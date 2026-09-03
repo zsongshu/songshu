@@ -1,0 +1,30 @@
+# Spring AI
+
+|     |
+| --- |
+| Spring AI 作为 Spring 官方推出的 AI 开发框架<br>通过封装LLM调用、向量数据库、工具调用等基础能力，帮助开发者使用几行代码即可构建智能体 |
+| 当业务场景涉及多 Agent 协同、复杂工作流时，Spring AI 的单体化设计显现出明显短板：<br><br>* **缺乏工作流编排能力****：**难以实现 Agent 间的任务流转与状态管理；<br>* **生态集成有限****：**未提供企业级所需的 RAG、模型评估等开箱功能。 |
+| 作为对 Spring AI 的企业级增强方案，**Spring AI Alibaba** 通过三大核心特性解决了上述问题：<br><br>1. **Graph 框架****：**基于有向无环图实现多 Agent 协同编排，支持条件分支、并行执行等复杂逻辑；<br>2. **DSL 转换器****：**兼容 Dify 等低代码平台的 DSL 配置，实现“低代码设计-高代码部署”的无缝衔接；<br>3. **阿里云生态集成****：**内置 RAG、百炼平台对接、可观测性等企业级能力，加速智能体工业化落地。 |
+| Spring AI Alibaba Graph：**AI工作流编排引擎，**提供构建、执行和管理**确定性工作流**（节点、边、状态流转）的基础能力。 |
+| Embabel：**构建在 Spring AI（可能包含Graph框架）之上的一种更高阶的抽象和应用范式。**在工作流之上，引入了**目标导向行动规划（GOAP）**、**自动代码理解**、**上下文感知**等高级AI能力，使代理能**自主规划**如何完成任务。 |
+| 以下是按照您的业务视角重新梳理的原子封装体系：<br><br><br>### 1\. 模型调用视角 (Model Invocation)<br><br>解决“标准化对话”与“多模态接入”的基础原子。<br><br>	**ChatModel** **/** **StreamingChatModel**：核心对话原子，抹平 OpenAI、DeepSeek 等协议差异。<br>	<br>	**EmbeddingModel**：向量化原子，将文本转为向量，是 RAG 和语义搜索的入口。<br>	<br>	**ImageModel** **/** **AudioModel**：多模态调用原子，负责生图、语音识别与合成。<br>	<br><br>### 2\. 工具调用与 Skills 视角 (Skills & Tool Calling)<br><br>解决“能力扩展”与“外部系统联动”，这是智能体执行任务的“手脚”。<br><br>	**@Tool** **(声明式原子)**：Spring AI 提供的方法级注解。任何 Java 方法加上此注解即成为一个 **Skill（技能）**。<br>	<br>	**ToolCallback** **(执行原子)**：将 Java 方法的输入/输出解析为模型可理解的 JSON Schema，并处理实际的反射调用。<br>	<br>	**ToolDefinition**：描述 Skill 的元数据（名称、描述、参数结构），用于向模型宣告“我能做什么”。<br>	<br>	**FunctionCallbackWrapper**：封装了工具调用的闭环：模型下发调用指令 -> 执行 Java 代码 -> 结果反哺模型。<br>	<br><br>### 3\. 应用开发与编排视角 (Application Orchestration)<br><br>这是您最关注的部分，涵盖了如何通过原子组件构建复杂的 AI 应用。<br><br>#### A. 提示词工程 (Prompt Engineering)<br><br>	**PromptTemplate**：提示词模板原子。支持动态参数注入（如 {context}），实现 Prompt 与代码解耦。<br>	<br>	**ChatOptions**：运行时配置原子。控制模型行为（Temperature、Top-P）及动态挂载哪些 Skills。<br>	<br>	**Message** **体系**：原子化的对话角色封装（System, User, Assistant, Tool）。<br>	<br><br>#### B. 检索增强生成 (RAG)<br><br>	**VectorStore**：向量存储原子。统一了 Redis、Milvus、PGVector 等 20 多种数据库的操作。<br>	<br>	**Document**：内容原子。封装文本块及其 Metadata（如来源 URL、页码）。<br>	<br>	**QuestionAnswerAdvisor** **(编排原子)**：**RAG 的核心拦截器**。它自动执行“检索 -> 组装上下文 -> 发送给模型”的编排逻辑，对业务代码无侵入。<br>	<br><br>#### C. 长记忆 (Long-term Memory)<br><br>	**ChatMemory** **(存储原子)**：定义了 add 和 get 消息的接口。<br>	<br>	**InMemoryChatMemory** **/** **CassandraChatMemory**：具体的存储实现。<br>	<br>	**MessageChatMemoryAdvisor** **(编排原子)**：自动维护上下文的拦截器。它在模型调用前后自动存取历史消息，实现“对话状态流转”。<br>	<br><br>### 4\. 智能体与工作流开发 (Agents & Workflows)<br><br>在 Spring AI 中，智能体和工作流并不是通过一个叫 Agent 的单一类实现的，而是通过 **ChatClient** **的链式编排**完成：<br><br>#### 开发智能体 (Building Agents)<br><br>智能体 = **ChatClient** **+** **Advisors** **+** **Tools**。<br><br>	**原子做法**：<br>	1. 使用 ChatClient.builder() 创建基础对象。<br>		<br>	2. 通过 .defaultAdvisors() 挂载**长记忆**和**RAG**。<br>		<br>	3. 通过 .defaultFunctions() 或 .defaultTools() 挂载 **Skills**。<br>		<br>	4. 调用 .call()。<br>		<br>	**特性**：Spring AI 的智能体默认是 **ReAct 模式**（感知-行动-观察），由模型自主决定调用哪些技能。<br>	<br><br>#### 开发工作流 (Building Workflows)<br><br>工作流是对 AI 步骤的显式控制。Spring AI 结合 **Spring Integration** 或 **Project Reactor** 来实现：<br><br>	**顺序流**：利用 Flux 或 Mono 将多个 ChatClient 调用串联，前一个输出作为后一个输入。<br>	<br>	**条件分支**：在 ChatClient 调用间加入业务逻辑判断。<br>	<br>	**高级编排**：正在引入类似 LangGraph 的状态机概念，通过 **Spring Statemachine** 实现带状态循环的复杂工作流。<br>	<br><br><br><br>### 🏛️ 结合您的“代码与低代码形态”框架建议：<br><br>1. **Skills 的统一**： 您可以将业务中的 RPC 接口（KESS）通过 @Tool 自动导出为 Spring AI 的 ToolDefinition。这样无论是代码形态还是低代码形态，看到的都是同一套 Skill 列表。<br>	<br>2. **Advisors 是“连接器”**： 在低代码界面上，每一个“插件”或“功能开关”其实都对应一个 Advisor（如：RAG 插件 -> QuestionAnswerAdvisor）。<br>	<br>3. **体验一致性**： 由于 ChatClient 封装了监控（Micrometer）和日志，通过这套原子构建的应用，天然就具备了您要求的“监控、排查、诊断”一致性。<br>	<br><br>**您看这套原子补全是否覆盖了您的设计需求？如果需要，我可以针对“如何把 RPC 接口快速封装成 Skill”提供一个具体的方案。** |
+
+
+
+
+
+|     |     |
+| --- | --- |
+| ### 1\. 模型调用与结果结构化 | // 定义结构化输出的 POJO<br>record AnalysisResult(String summary, List<String> keywords, int sentimentScore) {}<br><br>// 调用逻辑<br>AnalysisResult result = chatClient.prompt()<br>    .user("请简要分析一下这篇关于 Service Mesh 的文章：...")<br>    .call()<br>    .entity(AnalysisResult.class); // 自动完成 JSON 解析和映射 |
+| ### 2\. 使用 RAG (检索增强) | @Autowired<br>VectorStore vectorStore; // 注入向量数据库（已加载存量文档）<br><br>String response = chatClient.prompt()<br>    .user("根据内部文档，我们 Python RPC 的内存优化进展如何？")<br>    .advisors(new QuestionAnswerAdvisor(vectorStore)) // 挂载 RAG Advisor<br>    .call()<br>    .content(); |
+| ### 3\. 使用长记忆 (Persistent Memory) | @Autowired<br>ChatMemory chatMemory; // 可选 InMemory 或 Cassandra 等持久化实现<br><br>String response = chatClient.prompt()<br>    .advisors(new MessageChatMemoryAdvisor(chatMemory)) // 自动存取历史对话<br>    .user("我刚才提到的那项 C++ 改造计划，预估能节省多少内存？")<br>    .call()<br>    .content(); |
+| ### 4\. 编排一个工作流 (Chain Workflow) | // 步骤 1: 提取关键词<br>String keywords = chatClient.prompt()<br>    .user("提取此任务描述的关键词: " + taskDesc)<br>    .call().content();<br><br>// 步骤 2: 基于关键词生成方案（工作流编排）<br>String solution = chatClient.prompt()<br>    .user("请基于这些关键词设计一个技术方案: " + keywords)<br>    .call().content(); |
+| ### 5\. 编排一个智能体 (Agent) | // 定义一个 Skill（工具）<br>@Configuration<br>class AiTools {<br>    @Bean<br>    @Description("查询指定服务的内存占用情况")<br>    public Function<String, String> getServiceMemory() {<br>        return (serviceName) -> "Service " + serviceName + " uses 512MB.";<br>    }<br>}<br><br>// 编排 Agent<br>String agentResponse = chatClient.prompt()<br>    .system("你是一个高级架构师助手，可以使用工具查询服务状态。")<br>    .user("帮我看看可灵引擎 Python 服务的内存情况，并给出一个优化建议。")<br>    .functions("getServiceMemory") // 挂载工具，模型会根据需求自主调用<br>    .advisors(new MessageChatMemoryAdvisor(chatMemory)) // 给智能体配上记忆<br>    .call()<br>    .content(); |
+
+
+
+
+
+    Created at: 2025-10-09T20:11:20+08:00
+    Updated at: 2026-03-10T16:57:24+08:00
+

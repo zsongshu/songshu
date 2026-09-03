@@ -1,0 +1,620 @@
+# CodeFlicker 最佳实践指南：从新手到专家，手把手教会
+
+文章摘要：一文快速认识你的 AI 编程搭子，让他帮你写代码、做测试、打杂、甚至学会新技能。
+
+想象一下，你有一个新来的搭子：
+
+* 🧠 聪明：学东西很快，代码、架构、业务逻辑都能理解
+* ⚡ 勤快：24 小时在线，可以同时帮你做好几件事
+* 📝 需要指导：你说得越清楚，他做得越好
+* 🌱 会成长：用得越久，越懂你的习惯和偏好
+
+这就是 CodeFlicker。
+
+他不是一个只会执行命令的工具，而是一个需要沟通、会学习、能成长的协作伙伴。
+
+接下来，让我们看看他能帮你做什么 👇
+
+---
+
+# 认识 CodeFlicker
+
+CodeFlicker 是快手研发效能中心推出的 AI 编程搭子。他能帮你写代码、理解代码、修 Bug、做测试、写文档，甚至帮你打杂。
+
+## 他有几种“上班方式”
+
+![4639a854971b979092fdd5193f22f017.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/4639a854971b979092fdd5193f22f017.png)
+
+[<u>⬇️ 下载 IDE</u>](https://codeflicker.corp.kuaishou.com/download)
+
+## 他的核心能力
+
+![911d9a90156280b08a5ccd703e83b13b.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/911d9a90156280b08a5ccd703e83b13b.png)
+
+## 和他混熟全流程攻略
+
+![9a3b6fbf4f40018431908c71bca42df5.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/9a3b6fbf4f40018431908c71bca42df5.png)
+
+## 3步快速开始
+
+|     |     |     |     |     |
+| --- | --- | --- | --- | --- |
+| ① 打开IDE 并 切换到Duet Space | ②  打开工作空间 | ③ 选择已有项目或新建文件夹 |  |  |
+| ![3eb5973c6ceee5923f200c11ca1bfc08.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/3eb5973c6ceee5923f200c11ca1bfc08.png) | ![5bdc691343b98a445e77e7f119778a45.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/5bdc691343b98a445e77e7f119778a45.png) | ![eec2f360203fb8b82d5edc926ebbe0c2.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/eec2f360203fb8b82d5edc926ebbe0c2.png) |  |  |
+| ④ 和它打个招呼，让他自我介绍一下 |     |     |  |  |
+| ![e42f820f1e1af68edb62158800934e0e.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/e42f820f1e1af68edb62158800934e0e.png) |     |     |  |  |
+
+---
+
+# 1\. 打个招呼：完成第一个任务
+
+📌
+
+这一章的目标：先和他完成一个小任务，建立信任
+
+![c7700b70a68ed637c044066bc645419d.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/c7700b70a68ed637c044066bc645419d.png)
+
+## ⭐️ 你们的第一次对话
+
+![b657b0f46bc0c6c572ec8a01206aeac3.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/b657b0f46bc0c6c572ec8a01206aeac3.png)![159257f639d1d48f7a18c3fdc6234a67.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/159257f639d1d48f7a18c3fdc6234a67.png)
+
+## 🎯 实战：让他帮你做一个抽奖页面（10分钟）
+
+背景：年会要做个抽奖页面，你不想从零开始
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 打开 IDE，告诉他"帮我生成一个抽奖页面，有大转盘和抽奖动画" | 他会问你"需要移动端吗？" |
+| 2   | 回答"需要" | 他开始规划技术方案 |
+| 3   | 看他的方案，满意就点「执行」 | 他开始写代码 |
+| 4   | 点浏览器图标预览 | 他帮你打开页面 |
+
+✅ 完成标志：你看到一个可以点击的抽奖转盘
+
+## 🎯 实战：让他帮你写一个函数（5分钟）
+
+背景：你需要写一个数组去重的函数
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 新建 utils.js | \-  |
+| 2   | 输入 // 数组去重，支持对象数组按指定 key 去重 | \-  |
+| 3   | 换行，开始输入 function uniqueArray( | 他自动补全整个函数 |
+| 4   | 按 Tab 接受 | 函数完成 |
+
+✅ 完成标志：你得到一个完整的去重函数
+
+## 📖 参考
+
+[<u>CodeFlicker 官方文档</u>](https://www.codeflicker.ai/docs/)
+
+---
+
+# 2\. 日常加速：让他帮你写代码
+
+📌
+
+这一章的目标：让他成为你日常写代码的帮手
+
+![2d108831077b6ecf603e1dcda49d73fa.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/2d108831077b6ecf603e1dcda49d73fa.png)
+
+## ⭐️ 两种协作模式
+
+![f3ad1088c16284a403827ee66e53e855.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/f3ad1088c16284a403827ee66e53e855.png)
+
+|     |     |     |
+| --- | --- | --- |
+| 场景  | 推荐模式 | 原因  |
+| 探索性任务、需求不明确 | 计划模式 | 可在执行前纠正方向 |
+| 简单确定性任务 | 智能体模式 | 直接执行更快 |
+| 不确定复杂度 | 默认计划模式 | 避免走偏 |
+
+## 🎯 实战：让他帮你重构一个函数（15分钟）
+
+背景：有个 200 行的大函数，你想拆成小函数
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 选中那个大函数 | \-  |
+| 2   | 告诉他"帮我把这个函数拆成多个小函数，每个职责单一" | 他分析代码结构 |
+| 3   | 他给出重构方案 | 你确认后他开始改 |
+| 4   | Review 他的改动 | \-  |
+
+✅ 完成标志：大函数被拆成 3-5 个小函数，逻辑清晰
+
+## 🎯 实战：让他帮你理解陌生代码（20分钟）
+
+背景：接手了一个老项目，看不懂
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"帮我分析这个项目的整体架构" | 他扫描项目结构 |
+| 2   | 问他"入口文件在哪？" | 他告诉你并解释 |
+| 3   | 问他"这个函数是干什么的？" | 他解释逻辑 |
+
+✅ 完成标志：你对项目有了整体认知
+
+## 📖 参考
+
+[<u>和 AI 结对编程这段时间，我纠结过的 5 件事</u>](https://kstack.corp.kuaishou.com/article/14474)
+
+---
+
+# 3\. 复杂任务：给他一份详细的需求文档
+
+📌
+
+这一章的目标：学会给他"交底"，让他做复杂任务也靠谱
+
+![32cf83411d0444e414c06146f85cf370.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/32cf83411d0444e414c06146f85cf370.png)
+
+## ⭐️ 如何做Spec编程
+
+![735342ca7afa8dbc669f6b5f7acae993.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/735342ca7afa8dbc669f6b5f7acae993.png)
+
+|     |     |     |
+| --- | --- | --- |
+| 范式  | 耗时  | 特点  |
+| 传统开发 | ~10 PD | 人写技术设计 + 人工编码 |
+| 常见 AI Coding | ~8 PD | 人写技术设计 + AI 辅助子任务 |
+| 讨论模式 + Spec 前置 | ~2.5 PD | 人机讨论形成 Spec + AI 驱动执行 |
+
+## 🎯 实战：让他帮你做一个评论系统
+
+背景：你要给博客加评论功能
+
+|     |     |     |
+| --- | --- | --- |
+| 阶段  | 你做什么 | 他做什么 |
+| 1\. 讨论 | 告诉他"只讨论，不执行。我要做评论系统" | 他问你需要哪些功能 |
+| 2\. 澄清 | 回答他的问题 | 他输出一份 Spec |
+| 3\. 确认 | Review Spec，补充遗漏点 | 他更新 Spec |
+| 4\. 执行 | 说"开始执行" | 他按 Spec 写代码 |
+
+✅ 完成标志：评论系统完成，符合 Spec 要求
+
+## 📖 参考
+
+[<u>Spec，真的能解决 AI Coding 的问题吗？</u>](https://kstack.corp.kuaishou.com/article/14390)
+
+---
+
+# 4\. 端到端开发&测试：让他帮你直接交付可用的软件
+
+📌
+
+这一章的目标：让他不只是写代码，还能帮你验证效果
+
+![e91e6c60231729c129ae32b765cc9b4b.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/e91e6c60231729c129ae32b765cc9b4b.png)
+
+## ⭐️ 如何做Vibe编程
+
+![b0c71f300de338792b0ffc582719674d.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/b0c71f300de338792b0ffc582719674d.png)
+
+## 🎯 实战：让他帮你测试表单（15分钟）
+
+背景：你写完了注册页面，想让他帮你测
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"用浏览器测试注册页面，测正常流程、密码太短、邮箱格式错误，发现问题直接修" | 他打开浏览器 |
+| 2   | 观察  | 他自动填表单、点按钮、检查提示 |
+| 3   | 看报告 | 他汇报：✅ 正常注册 ✅ 密码校验 ❌ 邮箱校验（已修复） |
+
+✅ 完成标志：所有场景测试通过
+
+## 🎯 实战：让他帮你抓取工作记录（10分钟）
+
+背景：你想从内部系统抓取工作记录做年终总结
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"打开这个网页，分析我 2025 年做了什么，翻页看完，汇总到 works.md" | 他提示需要登录 |
+| 2   | 选择"Chrome 扩展"复用登录态 | 他打开网页开始抓取 |
+| 3   | 等待  | 他翻页、提取数据、生成报告 |
+
+✅ 完成标志：works.md 包含完整工作记录
+
+## 📖 参考
+
+[<u>2 分钟搞定年终总结？CodeFlicker IDE 让你躺平写报告！</u>](https://kstack.corp.kuaishou.com/article/14185)
+
+---
+
+# 5\. 多任务并行：让他同时做好几件事
+
+📌
+
+这一章的目标：让他同时帮你做多件事，你当指挥家
+
+![2c9dec982ccc88c057594bd4ac9052e2.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/2c9dec982ccc88c057594bd4ac9052e2.png)
+
+## ⭐️ 开启Duet Space模式
+
+![4e17e9b6029ef0884ae64f95ba57086a.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/4e17e9b6029ef0884ae64f95ba57086a.png)
+
+## 🎯 实战：让他同时做两个功能（30分钟）
+
+背景：你有两个待办功能
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 打开 Duet Space | \-  |
+| 2   | 新建会话 1："给 UserList.tsx 添加搜索框" | 任务 1 开始执行 |
+| 3   | 新建会话 2："修复 Login.tsx 移动端样式" | 任务 2 开始执行 |
+| 4   | 切换查看进度 | 两个任务同时推进 |
+| 5   | 分别 Review 和 commit | \-  |
+
+✅ 完成标志：两个功能差不多时间完成，各自独立 commit
+
+## 🎯 进阶技巧：用 git worktree 真正并行
+
+git worktree add ../project-feature-a feature-a git worktree add ../project-feature-b feature-b
+
+然后用 CodeFlicker 分别打开两个目录，在各自的 Duet Space 里独立开发。
+
+## 📖 参考
+
+[<u>CodeFlicker：从 Code Copilot 到 Agentic Coding</u>](https://docs.corp.kuaishou.com/k/home/VUOzPbLd4vEk/fcAAprgD8Zgo_0FRZKF7CBUk5)
+
+---
+
+# 6\. 语音交流：用说的比打字快
+
+📌
+
+这一章的目标：用嘴说比打字快，把"想清楚"的压力交给他
+
+![ca0e67d8b4144d1489ec67fef3d56e6b.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/ca0e67d8b4144d1489ec67fef3d56e6b.png)
+
+## ⭐️ 使用语音沟通
+
+![7a8f88566ea4eed5e94051adc5b2a8d0.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/7a8f88566ea4eed5e94051adc5b2a8d0.png)
+
+核心心法：语音适合"开放/探索性"任务，打字适合"精准/确定性"任务。
+
+## 🎯 实战：用语音讨论架构（20分钟）
+
+背景：你要设计一个新功能，还没想清楚
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 点击语音按钮，开始说<br><br>![62d8a40013c546799c7176159be97911.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/62d8a40013c546799c7176159be97911.png) | \-  |
+| 2   | "我想做一个用户反馈系统，大概就是用户可以提交反馈，我们可以回复，嗯，可能还要有分类..." | 他理解你的意图 |
+| 3   | 他问澄清问题 | 你继续语音回答 |
+| 4   | 他输出整理好的需求 | 你 Review |
+
+✅ 完成标志：模糊的想法变成了清晰的需求文档
+
+## 🎯 实战：用语音排查 Bug（10分钟）
+
+背景：页面报错了，你想让他帮你查
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 语音说"这个页面报了个错，帮我看看是什么问题" | 他读取错误信息 |
+| 2   | 语音补充"可能是昨天改的那个接口" | 他去查相关代码 |
+| 3   | 语音确认"对，就是这里，帮我修一下" | 他修复 Bug |
+
+✅ 完成标志：Bug 修复，页面正常
+
+## 📖 参考
+
+[<u>从"鸡肋"到"真香"：语音输入在我写代码这件事上的反转</u>](https://kstack.corp.kuaishou.com/article/14289)
+
+---
+
+# 7\. 教他新技能：让他越来越懂你的领域
+
+📌
+
+这一章的目标：教他学会新技能，他以后都记着
+
+![140fa36da2b42fc7b2a6962f51fbe64a.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/140fa36da2b42fc7b2a6962f51fbe64a.png)
+
+## ⭐️  掌握2个元Skill能力，驾驭整个Sill生态
+
+![cecb5047c2f3ac5687218e2c16c60f94.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/cecb5047c2f3ac5687218e2c16c60f94.png)
+
+* 帮我执行：npx skills add vercel-labs/skills@find-skills -g -y
+* 帮我安装：[<u>https://github.com/anthropics/skills</u>](https://github.com/anthropics/skills)
+* 重启 CodeFlicker 或等待 30 秒
+
+## 🎯 实战：安装一个 Skill（10分钟）
+
+背景：你想让他学会生成周报
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"找一个生成周报的 Skill" | 他调用 FindSkill |
+| 2   | 从推荐列表选一个 | 他帮你安装 |
+| 3   | 告诉他"帮我生成周报" | 他用新学的 Skill 生成 |
+
+✅ 完成标志：他用正确的格式生成了周报
+
+## 🎯 实战：创建一个 Skill（20分钟）
+
+背景：你想让他记住公司的代码规范
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"帮我创建一个代码规范的 Skill" | 他调用 SkillCreator |
+| 2   | 描述你的规范要求 | 他帮你整理成 Skill 格式 |
+| 3   | 确认保存 | Skill 创建成功 |
+| 4   | 以后写代码时，他自动遵守 | \-  |
+
+✅ 完成标志：他写的代码自动符合你的规范
+
+## 📖 参考
+
+[<u>让CodeFlicker快速变强的终极技巧：2个Skill搞定一切</u>](https://kstack.corp.kuaishou.com/article/14628)
+
+---
+
+# 8\. 跨项目打听：让他去别的仓库查资料
+
+📌
+
+这一章的目标：让他去其他项目帮你查资料，你不用切换工程
+
+![fae22af5fbcc18c0423e081289982374.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/fae22af5fbcc18c0423e081289982374.png)
+
+## ⭐️  跨仓研究能力
+
+![d4efe0f66666070a911c656b33242b9a.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/d4efe0f66666070a911c656b33242b9a.png)
+
+小贴士：跨仓研究的关键不是"问"，而是"把目标仓库 # 进来"。没引入目标仓库，Agent 很可能只能给出推测。
+
+## 🎯 实战：让他帮你追溯一个接口（15分钟）
+
+背景：调用 SDK 报错，你想看看源码
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 输入 # 引入 SDK 仓库 | \-  |
+| 2   | 告诉他"这个接口为什么报这个错？帮我找找原因" | 他去 SDK 仓库查代码 |
+| 3   | 等待  | 他分析调用链，找到原因 |
+| 4   | 看报告 | 他告诉你原因和解决方案 |
+
+✅ 完成标志：你不用切仓库就搞清楚了问题
+
+## 📖 参考
+
+[<u>CodeFlicker跨仓研究 —— 不切项目，也能把问题查清楚</u>](https://kstack.corp.kuaishou.com/article/14552)
+
+---
+
+# 9\. 让他打杂：周报、调研、PPT 都能帮
+
+📌
+
+这一章的目标：让他帮你做那些占时间的杂活
+
+![600b62b412932d329ad38f4f2950a8b6.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/600b62b412932d329ad38f4f2950a8b6.png)
+
+## ⭐️  他能帮你做什么杂活？
+
+![fd37b656f5414689df118b328885297a.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/fd37b656f5414689df118b328885297a.png)
+
+|     |     |
+| --- | --- |
+| 工作分类 | 具体场景 |
+| 📄 文档类 | 文档审校、文案撰写、技术调研、数据验证 |
+| 🎨 创意类 | PPT 制作、配图生成、设计方案 |
+| 📊 分析类 | 代码分析、架构研究、竞品调研 |
+| 📝 报告类 | 周报、月报、项目总结、复盘报告 |
+
+核心心法：不要局限于"写代码"，学会"渐进式交互"，善用"继续"和"进一步"。
+
+## 🎯 实战：让他帮你写周报（10分钟）
+
+背景：周五了，要写周报
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"帮我生成这周的周报" | 他问你这周做了什么 |
+| 2   | 简单说几个点 | 他整理成周报格式 |
+| 3   | 调整细节 | 周报完成 |
+
+✅ 完成标志：周报生成完毕
+
+## 🎯 实战：让他帮你做技术调研（20分钟）
+
+背景：老板让你调研几个方案
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他"帮我对比 A、B、C 三个方案，从性能、成本、易用性角度" | 他开始搜索资料 |
+| 2   | 等待  | 他整理对比表格 |
+| 3   | 让他"输出一份调研报告" | 他生成 Markdown 报告 |
+
+✅ 完成标志：调研报告生成，可以直接发给老板
+
+## 🎯 实战：让他帮你做 PPT（15分钟）
+
+背景：要做一个技术分享的 PPT
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 告诉他分享主题和大纲 | 他生成 PPT 结构 |
+| 2   | 确认结构 | 他填充内容 |
+| 3   | 调整细节 | PPT 完成 |
+
+✅ 完成标志：一份可以用的 PPT
+
+## 📖 参考
+
+* [<u>Duet Space：那个和你并肩工作的AI搭子，一直都在</u>](https://kstack.corp.kuaishou.com/article/14612)
+* [<u>非典型用户的一周体验：不止写代码，我用 CodeFlicker 搞调研、做PPT、写文档、生图，差点以为自己有了助理</u>](https://kstack.corp.kuaishou.com/article/14594)
+
+---
+
+# 10\. 网页共创：边聊边看他做出来
+
+📌
+
+这一章的目标：边聊边看他做，方向不对随时拉回
+
+![fcd6a787a74c9e1195538b3d6e4dbdbb.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/fcd6a787a74c9e1195538b3d6e4dbdbb.png)
+
+## ⭐️  使用Web版本进行网页共创
+
+![e3bf52fc552f5833618d8162bad5cd31.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/e3bf52fc552f5833618d8162bad5cd31.png)
+
+## 🎯 实战：让他帮你做个落地页（5分钟）
+
+背景：你想快速做个产品页面
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 打开网页生成（[https://codeflicker.corp.kuaishou.com/flow）](https://codeflicker.corp.kuaishou.com/flow%EF%BC%89) | \-  |
+| 2   | 说"做一个产品落地页，带导航、特性区、CTA" | 他开始边做边展示 |
+| 3   | 看着不对就说"更简洁一点" | 他立刻调整 |
+| 4   | 继续迭代 | 页面逐渐完善 |
+
+✅ 完成标志：一个可用的落地页原型
+
+## 🎯 实战：探索设计风格（10分钟）
+
+背景：你不确定要什么风格
+
+|     |     |     |
+| --- | --- | --- |
+| 步骤  | 你做什么 | 他做什么 |
+| 1   | 说"做一个数据仪表盘" | 他开始生成 |
+| 2   | 说"卡片间距大一点" | 他调整 |
+| 3   | 说"试试暗色主题" | 他切换风格 |
+| 4   | 说"加点毛玻璃效果" | 他继续调整 |
+
+✅ 完成标志：你找到了满意的风格
+
+## 📖 参考
+
+快速体验链接：
+
+* [🎮 生成马里奥小游戏](https://codeflicker.corp.kuaishou.com/flow/chat/new?prompt=%E7%94%9F%E6%88%90%E9%A9%AC%E9%87%8C%E5%A5%A5)
+* [📰 查看今日要闻](https://codeflicker.corp.kuaishou.com/flow/chat/new?prompt=%E4%BB%8A%E6%97%A5%E8%A6%81%E9%97%BB)
+* [📊 制作 PPT](https://codeflicker.corp.kuaishou.com/flow/chat/new?prompt=%E5%88%B6%E4%BD%9CPPT)
+
+更多文章：[<u>CodeFlicker 网页生成：把 AI 辅助开发，从"生成结果"变成"实时共创"</u>](https://kstack.corp.kuaishou.com/article/14531)
+
+---
+
+# 11\. 进阶： 把他培养成懂你的个人助理 ⭐️
+
+📌
+
+这一章的目标：理解和他相处的"心法"，你可以持续培养他，把工作越做越好！
+
+## ⭐️ 如何“培养”他
+
+|     |     |
+| --- | --- |
+| 先懂他 | 复杂任务，带着他做一遍，并让他记住 |
+| ![be152040143ff3de8b31eb2ed0618ea9.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/be152040143ff3de8b31eb2ed0618ea9.png) | ![0e06fb6c4747bb63e2e3a9cfa323d628.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/0e06fb6c4747bb63e2e3a9cfa323d628.png) |
+
+## 🎯 实战：带着他一起做一次任务，并让他学会你的习惯，第二次他会做的更好（20分钟）
+
+📌
+
+任务：整理微信公众号“方伟看十年”的文章，形成投资思路结构化的总结以及对文章中公司的总结
+
+### 第一次：带着他在磕磕绊绊中完成
+
+|     |     |
+| --- | --- |
+| 过程  | 问题  |
+| ![13a59acfbd6ca8c42c16085ec5129b7b.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/13a59acfbd6ca8c42c16085ec5129b7b.png) | 默认使用了浏览器工具，一个一个开网页，非常慢<br><br>![135dd670023e8eb8280676e69ea50b8e.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/135dd670023e8eb8280676e69ea50b8e.png) |
+| ![9ad62996a3277ce6e13299b21d135ea9.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/9ad62996a3277ce6e13299b21d135ea9.png) | 我让他改一个方式，他换成了web-fetch，速度一下快了<br><br>但跑完，输出了一个markdown给我，可读性不好 |
+| ![c4ff5422722b93fccf7de693627057ec.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/c4ff5422722b93fccf7de693627057ec.png) | 是我让他做一个美观点的网页（其中，我让他自己选一个页面好的skill） |
+| ![3c6d561109b0514e5300fea5de6fcc33.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/3c6d561109b0514e5300fea5de6fcc33.png) | 页面美观度还不错，但不符合我的阅读习惯，我让他改下，把结论放到最前面。 |
+| ![91ad33fef50f5cc0679b9acbba924a52.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/91ad33fef50f5cc0679b9acbba924a52.png) | 他改完了，但忘了我的要求，我主动让他记住：每次改完要把url发给我，我操作比较方便。 |
+| ![b7ed0d503d5f85838cf8a9e8804a2c4f.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/b7ed0d503d5f85838cf8a9e8804a2c4f.png) | 确认输出符合我的预期后，我让他沉淀一个Skill。<br><br>![613f739c0b2fbc3dc94f422a2491f33d.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/613f739c0b2fbc3dc94f422a2491f33d.png) |
+
+### 第二次：他学会了，一步到位
+
+|     |     |
+| --- | --- |
+| 过程  | 结果  |
+| 重新开一个会话，同样的任务，再输入一遍<br><br>![47a534a59102ad7d4a5ecf4536bc2ac3.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/47a534a59102ad7d4a5ecf4536bc2ac3.png)![610c5fe2e6f7f85041eac77375dbfc27.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/610c5fe2e6f7f85041eac77375dbfc27.png) | 产出了和第一次几乎完全一样的结果。包括页面的格式、效果、习惯。<br><br>![3309ca26884965f9ef78c18194123cb0.png](https://h4.static.yximgs.com/udata/pkg/EE-KSTACK/3309ca26884965f9ef78c18194123cb0.png) |
+| 同类任务试一下<br><br>![3a18dbca5fc385ce61df6a9ca6106e5f.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/3a18dbca5fc385ce61df6a9ca6106e5f.png) | 他能举一反三<br><br>![d82b2e95d8f7e30a106d2ea0232e8526.png](https://h23.static.yximgs.com/udata/pkg/EE-KSTACK/d82b2e95d8f7e30a106d2ea0232e8526.png) |
+
+---
+
+# 更多学习资源
+
+## 官方资源
+
+|     |     |
+| --- | --- |
+| 资源  | 链接  |
+| 产品介绍 | [CodeFlicker：从 Code Copilot 到 Agentic Coding](https://docs.corp.kuaishou.com/k/home/VUOzPbLd4vEk/fcAAprgD8Zgo_0FRZKF7CBUk5) |
+| 官方文档 | <https://www.codeflicker.ai/docs/> |
+| 下载地址 | <https://codeflicker.corp.kuaishou.com/download> |
+| Web 版 | <https://codeflicker.corp.kuaishou.com/flow> |
+
+## 社区文章
+
+|     |     |     |
+| --- | --- | --- |
+| 序号  | 文章标题 | 链接  |
+| 1   | 2分钟搞定年终总结？CodeFlicker IDE 让你躺平写报告！ | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14185) |
+| 2   | ES慢查询的"逆袭"：从3.5s到55ms的优化实战 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14477) |
+| 3   | 非典型用户一周体验 AI Coding 感想 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14594) |
+| 4   | AI编程元年：我的2025 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14609) |
+| 5   | 代码不值钱了，什么更值钱？ | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14569) |
+| 6   | 用 AI 智能体开发"智能修音系统" | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14461) |
+| 7   | 智能体技能上下文工程介绍 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14600) |
+| 8   | 为什么你应该关注 Skill | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14445) |
+| 9   | 和 AI 结对编程这段时间，我纠结过的 5 件事 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14474) |
+| 10  | Skill：你的第一个「造技」与「寻技」 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14628) |
+| 11  | 智能体技能内部仓库介绍 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14433) |
+| 12  | 我们怎么使用 CodeFlicker | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14605) |
+| 13  | Spec，真的能解决 AI Coding 的问题吗？ | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14390) |
+| 14  | Duet Space：那个和你并肩工作的AI搭子，一直都在 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14612) |
+| 15  | 从"鸡肋"到"真香"：语音输入在我写代码这件事上的反转 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14289) |
+| 16  | CodeFlicker跨仓研究 —— 不切项目，也能把问题查清楚 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14552) |
+| 17  | Skill：从零开始创建你的第一个 AI 技能 | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14487) |
+| 18  | CodeFlicker 网页生成：从"生成结果"变成"实时共创" | [<u>阅读</u>](https://kstack.corp.kuaishou.com/article/14531) |
+
+# 结语
+
+CodeFlicker 不是一个只听命令的工具。
+
+他是一个 需要沟通的搭子 —— 你说得越清楚，他做得越好。
+
+他是一个 会成长的伙伴 —— 用得越多，越懂你的偏好。
+
+他是一个 24 小时在线的帮手 —— 能写代码、能测试、能打杂。
+
+关键在于：把他当作一个需要充分沟通的协作者，而不是一个只需要下指令的工具。
+
+* 给他足够的上下文
+* 和他讨论而不是命令
+* 让他理解你的意图而不是猜测你的需求
+
+最后的最后，这篇文章是我是用CodeFlicker为它自己写的，我发现目前缺少这么一篇文档，很多用户都不会用。
+
+于是，我把CodeFlicker的产品文档、KStack社区链接、一些我觉得写的比较好的用户案例全部输入给他，让他去自己搜索大家的最佳实践和优秀案例，再分场景的总结出来，再通过写页面，让整个内容更清晰、更容易让大家看懂，最终形成了这篇文章。
+
+希望这篇指南能帮你和 CodeFlicker 建立更好的协作关系，也希望CodeFlicker能帮助你大幅提升工作效率。
+
+    Created at: 2026-03-31T15:37:32+08:00
+    Updated at: 2026-03-31T16:50:51+08:00
+

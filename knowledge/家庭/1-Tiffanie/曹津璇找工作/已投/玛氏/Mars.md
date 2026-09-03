@@ -1,0 +1,3 @@
+# Mars
+
+![[Mars .doc]]
