@@ -1,0 +1,17 @@
+# Sensitive - commit but don't share
+# **/auth.json
+
+# Session data (machine-specific)
+.pis/
+.pi's/
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
