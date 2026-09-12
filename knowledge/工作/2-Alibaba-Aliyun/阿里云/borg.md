@@ -1,3 +1,0 @@
-# borg
-
-![[borg.pdf]]

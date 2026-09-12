@@ -1,3 +1,0 @@
-# baidu
-
-![[baidu.doc]]

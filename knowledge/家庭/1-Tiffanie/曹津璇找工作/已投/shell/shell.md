@@ -1,3 +1,0 @@
-# shell
-
-![[shell.txt]]

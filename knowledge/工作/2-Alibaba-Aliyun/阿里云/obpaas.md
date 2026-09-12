@@ -1,3 +1,0 @@
-# obpaas
-
-![[obpaas.pdf]]

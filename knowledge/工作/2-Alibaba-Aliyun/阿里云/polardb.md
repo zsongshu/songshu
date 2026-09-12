@@ -1,3 +1,0 @@
-# polardb
-
-![[polardb.pptx]]

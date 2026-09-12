@@ -1,3 +1,0 @@
-# npref
-
-![[npref.pdf]]

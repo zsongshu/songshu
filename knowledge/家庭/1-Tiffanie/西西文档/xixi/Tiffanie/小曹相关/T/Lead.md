@@ -1,3 +1,0 @@
-# Lead
-
-![[Lead.xls]]

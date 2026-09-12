@@ -1,3 +1,0 @@
-# Euphonium
-
-![[Euphonium]]

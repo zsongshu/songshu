@@ -1,3 +1,0 @@
-# PPT
-
-![[PPT.docx]]

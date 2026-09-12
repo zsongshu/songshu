@@ -1,3 +1,0 @@
-# 2-2012 PRT TTT FI
-
-![[2-2012 PRT TTT FI.pptx]]

@@ -1,3 +1,0 @@
-# dangdang
-
-![[dangdang.txt]]

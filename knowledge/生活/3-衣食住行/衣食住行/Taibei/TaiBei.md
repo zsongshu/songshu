@@ -1,3 +1,0 @@
-# TaiBei
-
-![[TaiBei.txt]]

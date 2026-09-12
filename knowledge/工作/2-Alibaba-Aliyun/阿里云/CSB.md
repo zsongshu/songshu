@@ -1,3 +1,0 @@
-# CSB
-
-![[CSB.docx]]

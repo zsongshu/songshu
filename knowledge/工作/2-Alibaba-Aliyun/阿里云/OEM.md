@@ -1,3 +1,0 @@
-# OEM
-
-![[OEM.pptx]]

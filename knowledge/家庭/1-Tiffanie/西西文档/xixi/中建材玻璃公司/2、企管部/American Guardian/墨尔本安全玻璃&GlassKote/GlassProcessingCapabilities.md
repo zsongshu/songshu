@@ -1,3 +1,0 @@
-# GlassProcessingCapabilities
-
-![[GlassProcessingCapabilities.pdf]]
