@@ -41,6 +41,18 @@ else
   echo "  ✅ skills (Pi 专用)"
 fi
 
+# 权威约定源 AGENTS.md 与入口索引 README.md → ~/.pi/agent/（与 WorkBuddy 共用同一真源，保证 pi 也能读到）
+for doc in AGENTS.md README.md; do
+  if [ -L "$PI_DST/$doc" ]; then
+    echo "  ⏭️  $doc 已软链，跳过"
+  elif [ -e "$REPO_DIR/$doc" ]; then
+    ln -sf "$REPO_DIR/$doc" "$PI_DST/$doc"
+    echo "  ✅ $doc"
+  else
+    echo "  ⚠️  $doc 在仓库中缺失，跳过"
+  fi
+done
+
 # --- 验证：把实际软链打出来，方便肉眼确认 ---
 echo "  --- 验证 ---"
 for it in $PI_ITEMS; do
@@ -55,5 +67,12 @@ if [ -L "$HOME/.agents/skills" ]; then
 else
   echo "  ❌ skills 未软链"
 fi
+for doc in AGENTS.md README.md; do
+  if [ -L "$PI_DST/$doc" ]; then
+    echo "  👉 $doc -> $(readlink "$PI_DST/$doc")"
+  else
+    echo "  ❌ $doc 未软链"
+  fi
+done
 
 echo "✅ Pi 配置完成"

@@ -50,9 +50,17 @@ else
   echo "  ✅ AGENTS.md"
 fi
 
+# 入口索引 README.md → ~/.workbuddy/README.md（与 AGENTS.md 并列，确保 agent 开局能读到）
+if [ -L "$WB_DST/README.md" ]; then
+  echo "  ⏭️  README.md 已软链，跳过"
+else
+  ln -sf "$REPO_DIR/README.md" "$WB_DST/README.md"
+  echo "  ✅ README.md"
+fi
+
 # --- 验证：把实际软链打出来，方便肉眼确认 ---
 echo "  --- 验证 ---"
-for it in $WB_ITEMS AGENTS.md; do
+for it in $WB_ITEMS AGENTS.md README.md; do
   if [ -L "$WB_DST/$it" ]; then
     echo "  👉 $it -> $(readlink "$WB_DST/$it")"
   else

@@ -48,8 +48,14 @@
 - 是否关注金融数据（finance-data 插件已装，但标普/穆迪那条是否属于他存疑）
 - 3-衣食住行 整理后，要不要从 32G enex 把附件补回印象笔记（他目前还没决定）
 
+## 两 agent 通用约定（WorkBuddy + pi，用户 2026-10-03 明确指令）
+- **权威约定源 `~/songshu/AGENTS.md`；入口索引 `~/songshu/README.md`**。两个 agent 都应先读这两份。
+- **WorkBuddy**：本 MEMORY.md 每次会话被自动注入，故 WorkBuddy 开始干活前必须先 `Read` `~/.workbuddy/AGENTS.md` 与 `~/songshu/README.md`，未读不开始。
+- **pi**：在 `~/songshu` 目录内干活时按 cwd 加载项目指令（即 `~/songshu/AGENTS.md`）；已把 AGENTS.md/README.md 软链到 `~/.pi/agent/`，配置目录也有。
+- **知识库共用**：`~/songshu/knowledge/` 是两 agent 共用的权威工作记录源（md，git 即备份）。两边都检索、读取、写回此处，不要各写各的；印象笔记只做单向可读副本。
+
 ## WorkBuddy 工作记录归档约定（用户 2026-10-03 明确指令）
-- 所有在 WorkBuddy 里的工作记录，**默认归档到 `~/songshu/knowledge`**（md 格式，作为权威源）。
+- 所有在 WorkBuddy / pi 里的工作记录，**默认归档到公用的 `~/songshu/knowledge`**（md 格式，作为两 agent 共用的权威源）。
 - **不需要用户每次提示**，agent 主动执行。
 - **换话题触发总结**：一旦检测到用户从 A 话题切到 B 话题，立即把 A 话题的对话要点总结成一份 md，存入 `~/songshu/knowledge/topics/<主题>/<YYYY-MM-DD>-<类型>-<核心结论或问题>.md`（文件名即索引：类型取 compare/guide/decision/summary/note/faq）。
 - 分类按主题建子目录（如 `topics/ai-product-landscape/`），细节进文件、不进 memory。

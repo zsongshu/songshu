@@ -1,5 +1,7 @@
 # 关于 songshu (张松树)
 
+> **本文件是 WorkBuddy 与 pi 两个 agent 共用的权威约定源。** 任何 agent 在每次会话开始都应先读本文件，以及入口索引 `README.md`。改动只需改 `~/songshu/AGENTS.md` 一处（已软链到 `~/.workbuddy/AGENTS.md` 与 `~/.pi/agent/AGENTS.md`），两 agent 同步生效。
+
 ## 基本信息
 - **姓名**: 张松树
 - **家庭**:
@@ -62,11 +64,11 @@
 `~/songshu` 是张松树的**便携配置 + 知识库**仓库。换电脑执行 `git clone` + `./setup.sh` 即可恢复全部配置。各目录职责：
 
 - `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。
-- `knowledge/` — **WorkBuddy 工作记录归档源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是权威源，印象笔记只是可读副本。
+- `knowledge/` — **WorkBuddy 与 pi 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是两 agent 共用的权威源，印象笔记只是可读副本。
 - `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`；其**技能库在 `pi/skills/`**（brave-search / browser-tools / gccli·gdcli·gmcli / transcribe / vscode / youtube-transcript / anthropic 等），软链到 `~/.agents/skills`，被 Pi 读取。
 - `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。两个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
 - `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
-- 人类视角入口见 `README.md`（一句话索引，只讲是什么 + 怎么装）；本文件是给 agent 读的**权威约定源**。
+- `README.md` —— **人类入口索引**（是什么 + 怎么装），也是 agent 的开局必读（先建立全局认知）；本文件（AGENTS.md）是给 agent 的**权威约定源**（画像、结构、铁律、知识库闭环）。任何 agent（WorkBuddy / pi）每次会话开始先读这两份。
 
 ## agent 操作铁律
 
