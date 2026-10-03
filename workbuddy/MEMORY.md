@@ -54,3 +54,11 @@
 - **换话题触发总结**：一旦检测到用户从 A 话题切到 B 话题，立即把 A 话题的对话要点总结成一份 md，存入 `~/songshu/knowledge/topics/<主题>/<日期>-<slug>.md`。
 - 分类按主题建子目录（如 `topics/ai-product-landscape/`），细节进文件、不进 memory。
 - 备份策略：`~/songshu/knowledge` 是 git 仓库（远程 `zsongshu/songshu`），归档后 `git add` + `git commit`（仅新增/修改，不删）；印象笔记只做单向可读副本，绝不当唯一源。
+
+## WorkBuddy 个人配置 dotfiles 化（用户 2026-10-03 明确指令）
+- WorkBuddy 个人配置已 dotfiles 化：真实文件在 `~/songshu/workbuddy/`，`~/.workbuddy/` 对应处为软链（WorkBuddy 路径硬编码，无法改读 songshu）。
+- 纳入项（纯文本、可移植）：SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/。
+- 排除项（运行时/缓存/二进制，重装自动重建）：binaries、plugins、logs、traces、security、cache、sessions、workspace、local_storage、*.db、*.port 等。
+- `~/songshu/setup.sh` 含重建软链段，换电脑 `git clone` + `./setup.sh` 即可恢复。
+- ⚠️ **songshu 仓库为 public**：用户 2026-10-03 知情后选择照推公开库，MEMORY.md/USER.md/memory/ 的家庭·财务·保单信息已公开。以后不再就该库公开性重复报警；如需收紧可一键设为 private。
+- ⚠️ 远程地址内嵌明文 PAT（本地 .git/config，未进仓库）。建议轮换该 PAT 并改用 SSH/~/netrc，避免凭据明文暴露。
