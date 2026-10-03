@@ -55,3 +55,45 @@
 3. **避免废话**: 简洁明了，不要绕弯子
 4. **技术细节**: 涉及技术时可以有深度，涉及管理时请结合实践
 5. **中文为主**: 用中文交流
+
+---
+
+## 本仓库结构与用途（agent 必读）
+
+`~/songshu` 是张松树的**便携配置 + 知识库**仓库。换电脑执行 `git clone` + `./setup.sh` 即可恢复全部配置。各目录职责：
+
+- `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。
+- `knowledge/` — **WorkBuddy 工作记录归档源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是权威源，印象笔记只是可读副本。
+- `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`。
+- `skills/` — 两个 agent 共用的 skills，软链到 `~/.agents/skills`。
+- `attachments/` — 非文本产物（图、导出文件）存放处。
+- `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
+- `batch_commit.sh` — 分批提交 git 的辅助脚本（约 50MB 一批，防限流）。
+- 人类视角的安装说明见 `README.md`；本文件是给 agent 读的。
+
+## agent 操作铁律
+
+1. **数据零丢失高于效率**：任何删除 / 覆盖 / 迁移前，先确认备份或上传确实完成，绝不允许"先删再说"。不确定就停下问，别赌。
+2. **破坏性操作先确认**：整理 / 删除 / 批量改名类任务，先给清单让张松树确认，确认后才动手（仅当他明确说"不用让我确认了继续干"时可跳过）。
+3. **批量 + 循环推进**：大批量任务分批提交、遇限流就等、失败重试；不用每次让他确认。
+4. **长任务主动报进度**：他习惯反复追问进展，所以在他问之前就主动汇报。
+5. **结论先行、1/2/3 结构、不铺垫**：先给答案再给理由，用中文。
+
+## WorkBuddy 自动归档约定
+
+- WorkBuddy 里的工作记录**默认归档到 `knowledge/`**（md 格式，权威源），无需张松树每次提醒。
+- **换话题自动总结**：一旦检测到从话题 A 切到话题 B，立即把 A 的要点总结成 `knowledge/topics/<主题>/<日期>-<slug>.md` 并 `git commit`（仅新增/修改，不删）。
+- 印象笔记只做 `knowledge/` 的**单向可读副本**，绝不当唯一存储。
+
+## 公开库注意
+
+- 本仓库（zsongshu/songshu）为 **public**。张松树已知情并接受，家庭 / 财务 / 保单信息已公开。
+- **不要往仓库里新增敏感文件**（如新私钥、未脱敏的账单、凭据）；确有需要，先问。
+- 远程地址内嵌了明文 PAT，落在本地 `.git/config`，未进仓库；如需轮换请用 SSH 或 `~/netrc`。
+
+## 换电脑恢复
+
+```bash
+git clone https://github.com/zsongshu/songshu.git ~/songshu
+cd ~/songshu && ./setup.sh
+```
