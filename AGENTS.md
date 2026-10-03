@@ -56,6 +56,7 @@
 3. **避免废话**: 简洁明了，不要绕弯子
 4. **技术细节**: 涉及技术时可以有深度，涉及管理时请结合实践
 5. **中文为主**: 用中文交流
+6. **维度正交**: 讲解框架/分类时维度必须正交，不能把两个概念折叠进一根轴（曾指出"资产/动作"与"本机/云端"被混淆）；抽象维度先落地到他能理解的具体维度（如"产物保存位置"）再展开
 
 ---
 
@@ -63,7 +64,7 @@
 
 `~/songshu` 是张松树的**便携配置 + 知识库**仓库。换电脑执行 `git clone` + `./setup.sh` 即可恢复全部配置。各目录职责：
 
-- `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。
+- `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。**纳入项**（纯文本、可移植）：SOUL / IDENTITY / USER / MEMORY / memory/ / mcp.json / settings.json / models.json / skills/；**排除项**（运行时/缓存/二进制，重装自动重建）：binaries、plugins、logs、traces、security、cache、sessions、workspace、local_storage、*.db、*.port 等。
 - `knowledge/` — **WorkBuddy 与 pi 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是两 agent 共用的权威源，印象笔记只是可读副本。
 - `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`；其**技能库在 `pi/skills/`**（brave-search / browser-tools / gccli·gdcli·gmcli / transcribe / vscode / youtube-transcript / anthropic 等），软链到 `~/.agents/skills`，被 Pi 读取。
 - `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。两个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
@@ -78,9 +79,9 @@
 4. **长任务主动报进度**：他习惯反复追问进展，所以在他问之前就主动汇报。
 5. **结论先行、1/2/3 结构、不铺垫**：先给答案再给理由，用中文。
 
-## WorkBuddy 自动归档约定（检索-加载-续聊-记录 闭环）
+## 知识库归档约定（WorkBuddy 与 pi 共用，检索-加载-续聊-记录 闭环）
 
-- WorkBuddy 里的工作记录**默认归档到 `knowledge/`**（md 格式，权威源），无需张松树每次提醒。
+- WorkBuddy 与 pi 里的工作记录**默认归档到公用的 `~/songshu/knowledge/`**（md 格式，作为两 agent 共用的权威源），无需张松树每次提醒。归档后 `git add` + `git commit`（仅新增/修改，不删），git 仓库即备份。
 - **新讨论先检索**：开启一个新话题 / 新讨论前，先扫一遍 `knowledge/topics/`（也可 grep 全文）看是否已有类似讨论。命中就从**最相关的一份 md 加载上下文**，再接着聊——不重复从零开始，站在上次结论上推进。
 - **换话题自动总结**：一旦检测到从话题 A 切到话题 B，立即把 A 的要点总结成 `knowledge/topics/<主题>/<YYYY-MM-DD>-<类型>-<核心结论或问题>.md` 并 `git commit`（仅新增/修改，不删）。文件名即索引：`<类型>` 取 compare/guide/decision/summary/note/faq，让后续检索不用读内容就能初步判断。
 - **讨论完写回**：每轮讨论收尾，把结论 / 更新**写回对应知识库文件**（已有则更新，没有则新建），保持知识库与对话同步，形成闭环。
@@ -91,6 +92,29 @@
 - 本仓库（zsongshu/songshu）为 **public**。张松树已知情并接受，家庭 / 财务 / 保单信息已公开。
 - **不要往仓库里新增敏感文件**（如新私钥、未脱敏的账单、凭据）；确有需要，先问。
 - 远程地址内嵌了明文 PAT，落在本地 `.git/config`，未进仓库；如需轮换请用 SSH 或 `~/netrc`。
+
+## 工作环境（上下文）
+
+- **Obsidian 库**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/tim-zhang-obs`（约 7900+ md，仍在用但计划迁走）。
+- **印象笔记迁移目标**：全部笔记 → 印象笔记（Evernote 国际版，API token 方式），核心诉求是**云端存储**；本 `~/songshu` 即中转仓库。
+- **另一个 agent（pi）的会话记录**：`~/.pi/agent/sessions/`，是了解张松树的好素材。
+
+## 印象笔记数据状态（2026-09-13 实测，2026-09-22 完成全库去重）
+
+- 账号共 56 个笔记本 / 63,041 条笔记；最大的是 `2-Meituan` 43,184 条。
+- **旧导入的笔记大量是空壳**：`3-衣食住行` 12,092 条里 97.7% 正文 < 200 字节、仅 61 条带附件（图片/扫描件没导入进来）。
+- **全库真重复**：用 contentHash 指纹判重，132 组 / 209 条副本全部归入新建目录 `9-重复文件`（每组保留创建最早的一条为"原件"），云端笔记总数 63,042 不变（0 删除）。
+- **判定逻辑**：exclude len≤210 + 模板长度（>50 次频次）共 57,368 条空壳 → 真实内容笔记 5,248 → 取指纹候选 3,141 条 → 同 hash = 同文件。
+- 原始导出（含附件）还在：`~/Desktop/evernote_export_final`（56 个 enex，32G）、`~/Desktop/evernote_import`（173 个 enex，1.3G）—— 需要时可用来补附件。
+- 访问方式：MCP `yinxiang`（server 在 `~/mcp-servers/yinxiang-mcp`，stdio + HTTP 双模式，端口 8765）。
+- **Token 注意事项**：Developer Token 会自动失效（9 天后报 INVALID_AUTH），需要时去 https://app.yinxiang.com/api/DeveloperToken.action 重新生成并写到 `~/mcp-servers/yinxiang-mcp/.env`。
+- **API 配额**：约 300 次/小时，撞限流后等约 2000-2800s（33-47 分钟）才能继续。
+
+## 待确认
+
+- 是否关注金融数据（finance-data 插件已装，但标普/穆迪那条是否属于他存疑）。
+- 3-衣食住行 整理后，要不要从 32G enex 把附件补回印象笔记（他目前还没决定）。
+- 家庭结构：本文件当前记"儿子张淙棋（小名包包）"，与早期记忆"女儿包包"冲突，待张松树拍板。
 
 ## 换电脑恢复
 
