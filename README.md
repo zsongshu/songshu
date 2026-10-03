@@ -1,55 +1,22 @@
-# dotfiles
+# songshu —— 张松树的便携配置 + 知识库
 
-Personal configuration for development environment.
+这是张松树的 dotfiles 仓库：把 **WorkBuddy / Pi 的个人配置**和 **WorkBuddy 工作记录知识库**（`knowledge/`）存进 git，换电脑 `clone` + 跑脚本即可恢复全部环境。
 
-## What's included
-
-```
-├── pi/                    # Pi coding agent config
-│   ├── agent/
-│   │   ├── settings.json  # Pi settings
-│   │   ├── models-store.json
-│   │   └── auth.json      # API keys (private)
-│   └── skills/            # Pi skills (NOT shared with WorkBuddy)
-│       ├── anthropic/     # Anthropic official skills
-│       └── pi/           # Pi built-in skills
-└── README.md
-```
-
-## Setup on new machine
-
-> 💡 推荐直接运行 `./setup.sh`（自动建好 Pi + WorkBuddy 的全部软链，含 `pi/skills` → `~/.agents/skills`）。下面手动步骤仅作参考，且不包含 WorkBuddy / knowledge 的配置。
-
-### 1. Clone this repo
+## 换电脑怎么恢复
 
 ```bash
 git clone https://github.com/zsongshu/songshu.git ~/songshu
-cd ~/songshu
+cd ~/songshu && ./setup.sh
 ```
 
-### 2. Create symlinks
+`./setup.sh` 会自动建好 Pi 与 WorkBuddy 的全部软链（含 `pi/skills` → `~/.agents/skills`）。**不需要手动 `ln`。**
 
-```bash
-# Pi config
-mkdir -p ~/.pi/agent
-ln -sf ~/songshu/pi/agent/settings.json ~/.pi/agent/settings.json
-ln -sf ~/songshu/pi/agent/models-store.json ~/.pi/agent/models-store.json
-ln -sf ~/songshu/pi/agent/auth.json ~/.pi/agent/auth.json
+## 两份文档，作用不同（不要混）
 
-# Skills (Pi only)
-ln -sf ~/songshu/pi/skills ~/.agents/skills
-```
+- **`README.md`（本文件）** —— 给人看的入口：这是什么、怎么装。仅此而已。
+- **`AGENTS.md`** —— 给 AI agent（pi / WorkBuddy / 换电脑后的新 agent）看的**权威约定源**：你的个人画像、仓库结构、操作铁律、知识库归档闭环、公开库注意。任何 agent 读这一个文件就能接上你的要求。
 
-### 3. Authenticate Pi
+## 注意
 
-```bash
-pi /login
-# or set your API key
-export ANTHROPIC_API_KEY=sk-ant-...
-```
-
-## Notes
-
-- `auth.json` contains sensitive API tokens - don't share
-- Session data is stored in `~/.pi/agent/sessions/` (not synced)
-- Update models: `pi update --models`
+- 本仓库为 **public**，家庭 / 财务 / 保单信息已公开。不要往里新增敏感文件（私钥、未脱敏账单、凭据）。
+- 配置真身在 `~/songshu`，`~/.workbuddy/`、`~/.pi/` 下是软链；改配置要改这里，别去动软链本身。
