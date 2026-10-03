@@ -51,7 +51,7 @@
 ## WorkBuddy 工作记录归档约定（用户 2026-10-03 明确指令）
 - 所有在 WorkBuddy 里的工作记录，**默认归档到 `~/songshu/knowledge`**（md 格式，作为权威源）。
 - **不需要用户每次提示**，agent 主动执行。
-- **换话题触发总结**：一旦检测到用户从 A 话题切到 B 话题，立即把 A 话题的对话要点总结成一份 md，存入 `~/songshu/knowledge/topics/<主题>/<日期>-<slug>.md`。
+- **换话题触发总结**：一旦检测到用户从 A 话题切到 B 话题，立即把 A 话题的对话要点总结成一份 md，存入 `~/songshu/knowledge/topics/<主题>/<YYYY-MM-DD>-<类型>-<核心结论或问题>.md`（文件名即索引：类型取 compare/guide/decision/summary/note/faq）。
 - 分类按主题建子目录（如 `topics/ai-product-landscape/`），细节进文件、不进 memory。
 - **闭环（检索-加载-续聊-记录）**：①开新讨论前先扫 `~/songshu/knowledge/topics/`（可 grep 全文）看是否已有类似讨论，命中则先加载该 md 作上下文再接着聊；②换话题时把上一话题总结成 md；③每轮讨论收尾把结论/更新写回对应知识库文件（已有则更新、无则新建），保持与对话同步。
 - 备份策略：`~/songshu/knowledge` 是 git 仓库（远程 `zsongshu/songshu`），归档后 `git add` + `git commit`（仅新增/修改，不删）；印象笔记只做单向可读副本，绝不当唯一源。
