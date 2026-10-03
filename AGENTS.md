@@ -68,7 +68,6 @@
 - `skills/` — 两个 agent 共用的 skills，软链到 `~/.agents/skills`。
 - `attachments/` — 非文本产物（图、导出文件）存放处。
 - `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
-- `batch_commit.sh` — 分批提交 git 的辅助脚本（约 50MB 一批，防限流）。
 - 人类视角的安装说明见 `README.md`；本文件是给 agent 读的。
 
 ## agent 操作铁律
