@@ -3,7 +3,7 @@
 # setup-pi.sh —— 初始化 Pi（另一个 agent）的个人配置
 # ------------------------------------------------------------
 # 作用：把 ~/songshu/pi/agent 下的配置文件软链到 ~/.pi/agent
-#       并把共用的 skills 软链到 ~/.agents/skills
+#       并把 Pi 的 skills（~/songshu/pi/skills）软链到 ~/.agents/skills
 # 原则：只建软链、不复制文件。改动永远落回仓库（单一真源）。
 # 可独立运行：换电脑时也可以只跑这一个脚本恢复 Pi。
 # ============================================================
@@ -31,14 +31,14 @@ for it in $PI_ITEMS; do
   fi
 done
 
-# skills：Pi 与 WorkBuddy 共用
+# skills：Pi 专用（WorkBuddy 不共用，它有自己的 workbuddy/skills）
 # 注意：-n 关键。若 ~/.agents/skills 已是指向目录的软链，
 # 不加 -n 时 ln 会把它当目录、在仓库内造出 skills/skills 自循环。
 if [ -L "$HOME/.agents/skills" ]; then
   echo "  ⏭️  skills 已软链，跳过"
 else
-  ln -sfn "$REPO_DIR/skills" "$HOME/.agents/skills"
-  echo "  ✅ skills (Pi 与 WorkBuddy 共用)"
+  ln -sfn "$REPO_DIR/pi/skills" "$HOME/.agents/skills"
+  echo "  ✅ skills (Pi 专用)"
 fi
 
 # --- 验证：把实际软链打出来，方便肉眼确认 ---
