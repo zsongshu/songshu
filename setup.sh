@@ -46,6 +46,15 @@ for it in $WB_ITEMS; do
   fi
 done
 
+# WorkBuddy agent guide (repo-root AGENTS.md) -> ~/.workbuddy/AGENTS.md
+# 单一真源，软链保证 ~/.workbuddy 与 ~/songshu/AGENTS.md 始终同步
+if [ -L "$WB_DST/AGENTS.md" ]; then
+  echo "  ⏭️  AGENTS.md already linked"
+else
+  ln -sf "$REPO_DIR/AGENTS.md" "$WB_DST/AGENTS.md"
+  echo "  ✅ AGENTS.md"
+fi
+
 # Verify
 echo ""
 echo "✅ Setup complete!"
