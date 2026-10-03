@@ -39,7 +39,7 @@
 - **全库真重复**：用 contentHash 指纹判重，132 组 / 209 条副本全部归入新建目录 `9-重复文件`（每组保留创建最早的一条为"原件"），云端笔记总数 63,042 不变（0 删除）
 - **判定逻辑**：exclude len≤210 + 模板长度（>50 次频次）共 57,368 条空壳 → 真实内容笔记 5,248 → 取指纹候选 3,141 条 → 同 hash = 同文件
 - 原始导出（含附件）还在：`~/Desktop/evernote_export_final`（56 个 enex，32G）、`~/Desktop/evernote_import`（173 个 enex，1.3G）—— 需要时可用来补附件
-- **`~/songshu/knowledge` 现为 WorkBuddy 工作记录归档源**（2026-10-03 起启用，md 格式；git 仓库即备份）；`attachments` 仍只有 1 个文件，备份仍需依赖 GitHub 远程 + 印象笔记副本，不能只靠本地
+- **`~/songshu/knowledge` 现为 WorkBuddy 工作记录归档源**（2026-10-03 起启用，md 格式；git 仓库即备份）；非文本产物目录 `~/songshu/attachments` 已清理（原仅 1 个 .DS_Store、无实内容），备份依赖 GitHub 远程 + 印象笔记副本，不能只靠本地
 - 访问方式：MCP `yinxiang`（server 在 `~/mcp-servers/yinxiang-mcp`，stdio + HTTP 双模式，端口 8765）
 - **Token 注意事项**：Developer Token 会自动失效（9 天后报 INVALID_AUTH），需要时去 https://app.yinxiang.com/api/DeveloperToken.action 重新生成并写到 `~/mcp-servers/yinxiang-mcp/.env`
 - **API 配额**：约 300 次/小时，撞限流后等约 2000-2800s（33-47 分钟）才能继续
