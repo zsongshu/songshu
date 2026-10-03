@@ -1,72 +1,33 @@
 #!/bin/bash
-# songshu dotfiles setup script
-# Run this on a new machine after cloning the repo
+# ============================================================
+# setup.sh —— songshu dotfiles 主入口
+# ------------------------------------------------------------
+# 换电脑 clone 完仓库后，跑一次 ./setup.sh 即可恢复全部 agent 配置。
+# 它不自己干活，只按顺序调用两个子脚本：
+#   1) setup-pi.sh          —— 初始化 Pi
+#   2) setup-workbuddy.sh   —— 初始化 WorkBuddy
+# 想单独恢复某一个 agent，直接跑对应的子脚本即可。
+# ============================================================
 
 set -e
 
-REPO_DIR="$HOME/songshu"
+# 仓库根目录（取本脚本所在目录）
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "🚀 Setting up songshu dotfiles..."
-
-# Create directories
-echo "📁 Creating directories..."
-mkdir -p "$HOME/.pi/agent"
-mkdir -p "$HOME/.agents"
-
-# Create symlinks for pi config
-echo "🔗 Creating symlinks for pi config..."
-ln -sf "$REPO_DIR/pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
-ln -sf "$REPO_DIR/pi/agent/models-store.json" "$HOME/.pi/agent/models-store.json"
-ln -sf "$REPO_DIR/pi/agent/auth.json" "$HOME/.pi/agent/auth.json"
-
-# Create symlink for skills
-echo "🔗 Creating symlink for skills..."
-ln -sf "$REPO_DIR/skills" "$HOME/.agents/skills"
-
-# Create symlinks for WorkBuddy personal config (dotfiles)
-echo "🔗 Creating symlinks for WorkBuddy config..."
-WB_SRC="$REPO_DIR/workbuddy"
-WB_DST="$HOME/.workbuddy"
-WB_ITEMS="SOUL.md IDENTITY.md USER.md MEMORY.md memory mcp.json settings.json models.json skills"
-mkdir -p "$WB_DST"
-for it in $WB_ITEMS; do
-  if [ -e "$WB_SRC/$it" ]; then
-    if [ -L "$WB_DST/$it" ]; then
-      echo "  ⏭️  $it already linked"
-    elif [ -e "$WB_DST/$it" ]; then
-      mv "$WB_DST/$it" "$WB_DST/.originals-$it"
-      ln -s "$WB_SRC/$it" "$WB_DST/$it"
-      echo "  ✅ $it (backed up original)"
-    else
-      ln -s "$WB_SRC/$it" "$WB_DST/$it"
-      echo "  ✅ $it"
-    fi
-  else
-    echo "  ⚠️  $it not found in repo, skipped"
-  fi
-done
-
-# WorkBuddy agent guide (repo-root AGENTS.md) -> ~/.workbuddy/AGENTS.md
-# 单一真源，软链保证 ~/.workbuddy 与 ~/songshu/AGENTS.md 始终同步
-if [ -L "$WB_DST/AGENTS.md" ]; then
-  echo "  ⏭️  AGENTS.md already linked"
-else
-  ln -sf "$REPO_DIR/AGENTS.md" "$WB_DST/AGENTS.md"
-  echo "  ✅ AGENTS.md"
-fi
-
-# Verify
+echo "🚀 songshu dotfiles 初始化..."
+echo "   仓库位置: $SCRIPT_DIR"
 echo ""
-echo "✅ Setup complete!"
-echo ""
-echo "Symlinks created:"
-ls -la "$HOME/.pi/agent/settings.json" 2>/dev/null && echo "  ✅ settings.json"
-ls -la "$HOME/.pi/agent/models-store.json" 2>/dev/null && echo "  ✅ models-store.json"
-ls -la "$HOME/.pi/agent/auth.json" 2>/dev/null && echo "  ✅ auth.json"
-ls -la "$HOME/.agents/skills" 2>/dev/null && echo "  ✅ skills"
+
+echo "===== 1/2  Pi ====="
+"$SCRIPT_DIR/setup-pi.sh"
 
 echo ""
-echo "Next steps:"
-echo "  1. Run 'pi /login' to authenticate"
-echo "  2. Or set your API key: export ANTHROPIC_API_KEY=sk-ant-..."
-echo "  3. Restart pi"
+echo "===== 2/2  WorkBuddy ====="
+"$SCRIPT_DIR/setup-workbuddy.sh"
+
+echo ""
+echo "🎉 全部完成！"
+echo ""
+echo "下一步:"
+echo "  1. Pi:        运行 'pi /login' 登录，或 export ANTHROPIC_API_KEY=sk-ant-..."
+echo "  2. WorkBuddy: 重启应用，配置会自动从 ~/songshu/workbuddy 加载"
