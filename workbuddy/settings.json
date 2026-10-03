@@ -1,0 +1,42 @@
+{
+  "sandbox": {
+    "extraAllowWrite": [
+      "~/Library/Application Support/AgentConnectors/",
+      "~/.tencent-cloudq",
+      "~/.andonq",
+      "~/.xiaoe-cloud",
+      "~/.config/wecom/",
+      "~/.lark-cli",
+      "~/.lark-channel/",
+      "~/Library/Application Support/beisencli/",
+      "~/.dws",
+      "/tmp/dws-cache",
+      "~/.tmeet",
+      "~/Library/Application Support/tmeet"
+    ]
+  },
+  "autoLaunchLegacyCleanerRanAt": "2026-09-13T09:17:44.533Z",
+  "dockRecentAppsRepairedAt": "2026-09-13T09:17:44.552Z",
+  "claw": {
+    "channels": {
+      "wechatmp": {
+        "enabled": true,
+        "connectionMode": "webhook"
+      }
+    },
+    "users": {},
+    "legacyOwnerUid": "5ea93087-8fd1-4ac3-b77d-1c83ca0b024f"
+  },
+  "enabledPlugins": {
+    "agent-browser@codebuddy-plugins-official": true,
+    "find-skills@codebuddy-plugins-official": true,
+    "weixinpay@workbuddy-builtin": true,
+    "tencent-docs-plugin@workbuddy-builtin": true,
+    "sheetagent@workbuddy-builtin": true,
+    "tencent-pptx@workbuddy-builtin": true,
+    "tencent-docx@workbuddy-builtin": true,
+    "document-skills@cb_teams_marketplace": true,
+    "finance-data@cb_teams_marketplace": true,
+    "playwright-cli@codebuddy-plugins-official": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "yinxiang": {
+      "command": "/Users/timzhang/mcp-servers/yinxiang-mcp/.venv/bin/python3",
+      "args": [
+        "/Users/timzhang/mcp-servers/yinxiang-mcp/server.py"
+      ],
+      "env": {
+        "YINXIANG_TOKEN": "S=s66:U=103e0d0:E=1a09bd6920c:C=1a077ca0b48:P=1cd:A=en-devtoken:V=2:H=5475a9a7717f4a69fc84586bf265ae16",
+        "YINXIANG_SANDBOX": "false"
+      }
+    }
+  }
+}

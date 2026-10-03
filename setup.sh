@@ -23,6 +23,29 @@ ln -sf "$REPO_DIR/pi/agent/auth.json" "$HOME/.pi/agent/auth.json"
 echo "🔗 Creating symlink for skills..."
 ln -sf "$REPO_DIR/skills" "$HOME/.agents/skills"
 
+# Create symlinks for WorkBuddy personal config (dotfiles)
+echo "🔗 Creating symlinks for WorkBuddy config..."
+WB_SRC="$REPO_DIR/workbuddy"
+WB_DST="$HOME/.workbuddy"
+WB_ITEMS="SOUL.md IDENTITY.md USER.md MEMORY.md memory mcp.json settings.json models.json skills"
+mkdir -p "$WB_DST"
+for it in $WB_ITEMS; do
+  if [ -e "$WB_SRC/$it" ]; then
+    if [ -L "$WB_DST/$it" ]; then
+      echo "  ⏭️  $it already linked"
+    elif [ -e "$WB_DST/$it" ]; then
+      mv "$WB_DST/$it" "$WB_DST/.originals-$it"
+      ln -s "$WB_SRC/$it" "$WB_DST/$it"
+      echo "  ✅ $it (backed up original)"
+    else
+      ln -s "$WB_SRC/$it" "$WB_DST/$it"
+      echo "  ✅ $it"
+    fi
+  else
+    echo "  ⚠️  $it not found in repo, skipped"
+  fi
+done
+
 # Verify
 echo ""
 echo "✅ Setup complete!"
