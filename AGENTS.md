@@ -117,6 +117,8 @@
 
 ## 换电脑恢复
 
+> **前置：先安装两个应用本身。** `~/songshu` 只管配置，不管程序。先装好 **WorkBuddy** 与 **Pi（另一个 coding agent）**，再跑脚本——`setup.sh` 只把配置软链进它们各自的目录，应用不存在则软链无处可挂。
+
 ```bash
 git clone https://github.com/zsongshu/songshu.git ~/songshu
 cd ~/songshu && ./setup.sh
