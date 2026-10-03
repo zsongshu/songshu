@@ -32,8 +32,14 @@ for it in $PI_ITEMS; do
 done
 
 # skills：Pi 与 WorkBuddy 共用
-ln -sf "$REPO_DIR/skills" "$HOME/.agents/skills"
-echo "  ✅ skills (Pi 与 WorkBuddy 共用)"
+# 注意：-n 关键。若 ~/.agents/skills 已是指向目录的软链，
+# 不加 -n 时 ln 会把它当目录、在仓库内造出 skills/skills 自循环。
+if [ -L "$HOME/.agents/skills" ]; then
+  echo "  ⏭️  skills 已软链，跳过"
+else
+  ln -sfn "$REPO_DIR/skills" "$HOME/.agents/skills"
+  echo "  ✅ skills (Pi 与 WorkBuddy 共用)"
+fi
 
 # --- 验证：把实际软链打出来，方便肉眼确认 ---
 echo "  --- 验证 ---"
