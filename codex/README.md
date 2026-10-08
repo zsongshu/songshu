@@ -1,11 +1,14 @@
 # Codex 工作目录
 
-`~/songshu/codex/` 用于保存 Codex 专用的可移植配置、说明和技能。
+`~/songshu/codex/` 保存 Codex 专用的可移植说明、技能和可选配置。
 
-- 工作目录：`/Users/timzhang/songshu`。
-- 共用约定：开始工作先读根目录 `AGENTS.md` 和 `README.md`；本目录 `AGENTS.md` 软链到根目录的权威源。
-- 共用知识库：新话题先检索 `../knowledge/topics/`，讨论结论写回 `../knowledge/`。
-- `skills/`：Codex 专用技能目录，与 Pi 和 WorkBuddy 分别维护。此目录尚未连接到 Codex 的全局技能加载路径。
-- 凭据、会话、缓存和日志不放入本目录。
+运行 `./setup-codex.sh`，或通过 `./setup.sh` 一起恢复三个 agent。
 
-本目录目前只建立仓库结构，没有修改 Codex 应用的全局配置或项目归属。
+- 根目录 `AGENTS.md` 与 `README.md` 软链到 `${CODEX_HOME:-~/.codex}/`；开始工作先读两份文档。
+- `codex/skills/` 软链到本仓库 `.agents/skills/`，由 Codex 按仓库作用域加载；不改动 Pi 的 `~/.agents/skills`。
+- 共用知识库 `knowledge/`：新话题先检索，讨论结论写回。
+- 可选 `codex/config.toml`：存在才软链恢复；放入公开仓库前必须确认无凭据。当前没有迁入本机配置。
+- 已有目标先备份，重复运行不重复备份正确的软链。
+- 不纳入凭据、会话、缓存、日志；脚本不改变桌面聊天的项目归属。
+
+官方说明：[AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)、[技能加载](https://learn.chatgpt.com/docs/build-skills)。

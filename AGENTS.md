@@ -123,3 +123,11 @@
 git clone https://github.com/zsongshu/songshu.git ~/songshu
 cd ~/songshu && ./setup.sh
 ```
+
+## Codex 接入（2026-10-08）
+
+- Codex 同样以本文件和根目录 `README.md` 为开局必读，共用 `knowledge/` 的检索与归档闭环。
+- `codex/` 保存 Codex 专用说明、技能与可选的无凭据 `config.toml`。
+- `setup-codex.sh` 将共用 `AGENTS.md`、`README.md` 软链到 Codex home（默认 `~/.codex`），将 `codex/skills/` 软链到本仓库 `.agents/skills/`，不修改 Pi 的全局技能路径。
+- 已有目标先备份；正确软链重复运行时跳过。不会将凭据、会话或缓存纳入仓库。
+- `setup.sh` 现按 Pi、WorkBuddy、Codex 三段恢复；换电脑时先安装需要的应用本身。

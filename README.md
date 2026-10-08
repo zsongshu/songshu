@@ -1,17 +1,17 @@
 # songshu —— 张松树的便携配置 + 知识库
 
-这是张松树的 dotfiles 仓库：把 **WorkBuddy / Pi 的个人配置**和 **WorkBuddy 工作记录知识库**（`knowledge/`）存进 git，换电脑 `clone` + 跑脚本即可恢复全部环境。
+这是张松树的 dotfiles 仓库：把 **WorkBuddy / Pi / Codex 的个人配置**和 **WorkBuddy 工作记录知识库**（`knowledge/`）存进 git，换电脑 `clone` + 跑脚本即可恢复全部环境。
 
 ## 换电脑怎么恢复
 
-> **前置：先安装两个应用本身。** `~/songshu` 只管配置，不管程序。请先装好 **WorkBuddy** 与 **Pi（另一个 coding agent）**，再跑下面脚本——`setup.sh` 是把配置软链进它们各自的目录，应用不存在则软链无处可挂。
+> **前置：先安装需要的应用本身。** `~/songshu` 只管配置，不管程序。请先装好 **WorkBuddy**、**Pi（另一个 coding agent）** 与 **Codex**，再跑下面脚本——`setup.sh` 是把配置软链进它们各自的目录，应用不存在则软链无处可挂。
 
 ```bash
 git clone https://github.com/zsongshu/songshu.git ~/songshu
 cd ~/songshu && ./setup.sh
 ```
 
-`./setup.sh` 会自动建好 Pi 与 WorkBuddy 的全部软链（含 `pi/skills` → `~/.agents/skills`）。**不需要手动 `ln`。**
+`./setup.sh` 会自动建好 Pi、WorkBuddy 与 Codex 的配置软链（含 `pi/skills` → `~/.agents/skills`）。**不需要手动 `ln`。**
 
 ## 两份文档，作用不同（不要混）
 
@@ -25,4 +25,4 @@ cd ~/songshu && ./setup.sh
 
 ## Codex
 
-`codex/` 保存 Codex 专用说明和技能，共用根目录 `AGENTS.md` 与 `knowledge/`。当前未配置全局软链；已有 `setup.sh` 仍只恢复 Pi 与 WorkBuddy。
+`codex/` 保存 Codex 专用说明和技能，共用根目录 `AGENTS.md` 与 `knowledge/`。运行 `./setup-codex.sh` 可建立共用指引与仓库技能的软链；`./setup.sh` 已接入 Codex。
