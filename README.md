@@ -22,3 +22,7 @@ cd ~/songshu && ./setup.sh
 
 - 本仓库为 **public**，家庭 / 财务 / 保单信息已公开。不要往里新增敏感文件（私钥、未脱敏账单、凭据）。
 - 配置真身在 `~/songshu`，`~/.workbuddy/`、`~/.pi/` 下是软链；改配置要改这里，别去动软链本身。
+
+## Codex
+
+`codex/` 保存 Codex 专用说明和技能，共用根目录 `AGENTS.md` 与 `knowledge/`。当前未配置全局软链；已有 `setup.sh` 仍只恢复 Pi 与 WorkBuddy。
