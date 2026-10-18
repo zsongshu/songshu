@@ -30,7 +30,8 @@
           "cacheWrite": 0.375
         },
         "contextWindow": 204800,
-        "maxTokens": 131072
+        "maxTokens": 131072,
+        "type": "chat"
       },
       {
         "id": "MiniMax-M2.7-highspeed",
@@ -49,7 +50,8 @@
           "cacheWrite": 0.375
         },
         "contextWindow": 204800,
-        "maxTokens": 131072
+        "maxTokens": 131072,
+        "type": "chat"
       },
       {
         "id": "MiniMax-M3",
@@ -68,13 +70,24 @@
           "cacheRead": 0.06,
           "cacheWrite": 0
         },
-        "contextWindow": 1048576,
-        "maxTokens": 512000
+        "contextWindow": 1000000,
+        "maxTokens": 512000,
+        "inputLimits": {
+          "images": {
+            "resize": {
+              "maxWidth": 2000,
+              "maxHeight": 2000,
+              "maxBytes": 4718592,
+              "jpegQuality": 80
+            }
+          }
+        },
+        "type": "chat"
       }
     ],
-    "checkedAt": 1788711876654,
-    "lastModified": 1788432036000,
-    "etag": "W/\"d20c51599033e3fd08995f4c0c452179\""
+    "checkedAt": 1791296235289,
+    "lastModified": 1791290539000,
+    "etag": "W/\"f14a0ce53d173cd0a934ddd0ba02eaae\""
   },
   "minimax": {
     "models": [
@@ -95,7 +108,8 @@
           "cacheWrite": 0.375
         },
         "contextWindow": 204800,
-        "maxTokens": 131072
+        "maxTokens": 131072,
+        "type": "chat"
       },
       {
         "id": "MiniMax-M2.7-highspeed",
@@ -114,7 +128,8 @@
           "cacheWrite": 0.375
         },
         "contextWindow": 204800,
-        "maxTokens": 131072
+        "maxTokens": 131072,
+        "type": "chat"
       },
       {
         "id": "MiniMax-M3",
@@ -133,12 +148,23 @@
           "cacheRead": 0.06,
           "cacheWrite": 0
         },
-        "contextWindow": 1048576,
-        "maxTokens": 512000
+        "contextWindow": 1000000,
+        "maxTokens": 512000,
+        "inputLimits": {
+          "images": {
+            "resize": {
+              "maxWidth": 2000,
+              "maxHeight": 2000,
+              "maxBytes": 4718592,
+              "jpegQuality": 80
+            }
+          }
+        },
+        "type": "chat"
       }
     ],
-    "checkedAt": 1788711876654,
-    "lastModified": 1788432034000,
-    "etag": "W/\"76fd732bcd92a0ec53fd9ed002a636f9\""
+    "checkedAt": 1791296235260,
+    "lastModified": 1791290537000,
+    "etag": "W/\"4e2d71f310d31d47d4ce8276b8425735\""
   }
 }

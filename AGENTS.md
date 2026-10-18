@@ -1,6 +1,6 @@
 # 关于 songshu (张松树)
 
-> **本文件是 WorkBuddy 与 pi 两个 agent 共用的权威约定源。** 任何 agent 在每次会话开始都应先读本文件，以及入口索引 `README.md`。改动只需改 `~/songshu/AGENTS.md` 一处（已软链到 `~/.workbuddy/AGENTS.md` 与 `~/.pi/agent/AGENTS.md`），两 agent 同步生效。
+> **本文件是 WorkBuddy、pi 与 Codex 三个 agent 共用的权威约定源。** 任何 agent 在每次会话开始都应先读本文件，以及入口索引 `README.md`。改动只需改 `~/songshu/AGENTS.md` 一处（已软链到 `~/.workbuddy/AGENTS.md`、`~/.pi/agent/AGENTS.md` 与 `~/.codex/AGENTS.md`），三 agent 同步生效。
 
 ## 基本信息
 - **姓名**: 张松树
@@ -65,11 +65,11 @@
 `~/songshu` 是张松树的**便携配置 + 知识库**仓库。换电脑执行 `git clone` + `./setup.sh` 即可恢复全部配置。各目录职责：
 
 - `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。**纳入项**（纯文本、可移植）：SOUL / IDENTITY / USER / MEMORY / memory/ / mcp.json / settings.json / models.json / skills/；**排除项**（运行时/缓存/二进制，重装自动重建）：binaries、plugins、logs、traces、security、cache、sessions、workspace、local_storage、*.db、*.port 等。
-- `knowledge/` — **WorkBuddy 与 pi 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是两 agent 共用的权威源，印象笔记只是可读副本。
+- `knowledge/` — **WorkBuddy、pi 与 Codex 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是三 agent 共用的权威源，印象笔记只是可读副本。
 - `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`；其**技能库在 `pi/skills/`**（brave-search / browser-tools / gccli·gdcli·gmcli / transcribe / vscode / youtube-transcript / anthropic 等），软链到 `~/.agents/skills`，被 Pi 读取。
-- `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。两个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
+- `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。三个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
 - `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
-- `README.md` —— **人类入口索引**（是什么 + 怎么装），也是 agent 的开局必读（先建立全局认知）；本文件（AGENTS.md）是给 agent 的**权威约定源**（画像、结构、铁律、知识库闭环）。任何 agent（WorkBuddy / pi）每次会话开始先读这两份。
+- `README.md` —— **人类入口索引**（是什么 + 怎么装），也是 agent 的开局必读（先建立全局认知）；本文件（AGENTS.md）是给 agent 的**权威约定源**（画像、结构、铁律、知识库闭环）。任何 agent（WorkBuddy / pi / Codex）每次会话开始先读这两份。
 
 ## agent 操作铁律
 
@@ -79,9 +79,9 @@
 4. **长任务主动报进度**：他习惯反复追问进展，所以在他问之前就主动汇报。
 5. **结论先行、1/2/3 结构、不铺垫**：先给答案再给理由，用中文。
 
-## 知识库归档约定（WorkBuddy 与 pi 共用，检索-加载-续聊-记录 闭环）
+## 知识库归档约定（WorkBuddy、pi 与 Codex 共用，检索-加载-续聊-记录 闭环）
 
-- WorkBuddy 与 pi 里的工作记录**默认归档到公用的 `~/songshu/knowledge/`**（md 格式，作为两 agent 共用的权威源），无需张松树每次提醒。归档后 `git add` + `git commit`（仅新增/修改，不删），git 仓库即备份。
+- WorkBuddy、pi 与 Codex 里的工作记录**默认归档到公用的 `~/songshu/knowledge/`**（md 格式，作为三 agent 共用的权威源），无需张松树每次提醒。归档后 `git add` + `git commit`（仅新增/修改，不删），git 仓库即备份。
 - **新讨论先检索**：开启一个新话题 / 新讨论前，先扫一遍 `knowledge/topics/`（也可 grep 全文）看是否已有类似讨论。命中就从**最相关的一份 md 加载上下文**，再接着聊——不重复从零开始，站在上次结论上推进。
 - **换话题自动总结**：一旦检测到从话题 A 切到话题 B，立即把 A 的要点总结成 `knowledge/topics/<主题>/<YYYY-MM-DD>-<类型>-<核心结论或问题>.md` 并 `git commit`（仅新增/修改，不删）。文件名即索引：`<类型>` 取 compare/guide/decision/summary/note/faq，让后续检索不用读内容就能初步判断。
 - **讨论完写回**：每轮讨论收尾，把结论 / 更新**写回对应知识库文件**（已有则更新，没有则新建），保持知识库与对话同步，形成闭环。
