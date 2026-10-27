@@ -18,3 +18,7 @@
 songshu-attachments/
 _resources/
 attachments_big/
+
+# Obsidian 知识库迁移（2026-10-27）：vault 是独立私有仓库 tim-zhang-obs，不进本仓库
+vault/
+attachments-staging/

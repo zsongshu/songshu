@@ -66,6 +66,7 @@
 
 - `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。**纳入项**（纯文本、可移植）：SOUL / IDENTITY / USER / MEMORY / memory/ / mcp.json / settings.json / models.json / skills/；**排除项**（运行时/缓存/二进制，重装自动重建）：binaries、plugins、logs、traces、security、cache、sessions、workspace、local_storage、*.db、*.port 等。
 - `knowledge/` — **WorkBuddy、pi 与 Codex 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是三 agent 共用的权威源，印象笔记只是可读副本。
+- `vault/` — **Obsidian 知识库迁移产物（2026-10-27）**：7936 篇 md，图片已全部 base64 内嵌。它是**独立私有仓库 `zsongshu/tim-zhang-obs`**（git@github.com:zsongshu/tim-zhang-obs.git），不进本 public 仓库（.gitignore 已排除）。附件在 iCloud CloudDocs `ebook/`（pdf/word/ppt/excel/视频）与 `attachments-staging/`（其他类型，暂存）；完整映射见 `vault/attachments-manifest.csv`。源 iCloud Obsidian 库保留未删。
 - `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`；其**技能库在 `pi/skills/`**（brave-search / browser-tools / gccli·gdcli·gmcli / transcribe / vscode / youtube-transcript / anthropic 等），软链到 `~/.agents/skills`，被 Pi 读取。
 - `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。三个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
 - `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
