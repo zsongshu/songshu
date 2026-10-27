@@ -3,7 +3,7 @@
 ## 最终结果
 - **md**：7936 篇 → `~/songshu/vault`（保持原目录结构），**8200 处图片 base64 内嵌**（含按魔数识别的伪 .bin 图片）
 - **ebook**（`~/Library/Mobile Documents/com~apple~CloudDocs/ebook`）：平铺移入 **7955 个** pdf/word/ppt/excel/视频（16G）；475 个同名不同内容加 `_hash8` 后缀；403 个内容重复只保留一份
-- **暂存区**（`~/songshu/attachments-staging/`）：845 个不符合 ebook 规则的附件（txt 713 / zip / chm / bin 等），待用户决定去向
+- **暂存区**（`~/songshu/attachments-staging/`）：845 个不符合 ebook 规则的附件（txt 713 / zip / chm / bin 等）。**用户已决定（13:15）：平铺搬到 `ebook/其他/`**，搬运记录 `ebook/其他/_moved_from_staging.csv`；暂存区现只留 2 个流程记录 csv。
 - **GitHub**：私有仓库 `zsongshu/tim-zhang-obs`（用 songshu 仓库内嵌 PAT 经 API 创建，gh 未安装）；52 个提交按顶层目录分批推送，本地与远程 HEAD 一致（7e3d9d8）
 - **清单**：`vault/attachments-manifest.csv`（12980 行）：md↔图片内嵌↔附件 ebook/暂存区 映射；not_found 仅 81 条（dup 副本，内容在 ebook）
 - 源 iCloud 库只读未动，确认无误后用户自行处理
