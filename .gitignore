@@ -16,3 +16,6 @@
 .vscode/
 *.code-workspace
 /attachments-staging
+
+# vault 是独立的 Obsidian 仓库（remote: zsongshu/tim-zhang-obs），外层不追踪
+/vault/
