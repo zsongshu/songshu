@@ -66,7 +66,7 @@
 
 - `workbuddy/` — **WorkBuddy 个人配置**（SOUL.md / IDENTITY.md / USER.md / MEMORY.md / memory/ / mcp.json / settings.json / models.json / skills/）。WorkBuddy 路径硬编码在 `~/.workbuddy/`，无法改读本目录，因此用**软链**：真实文件在此，`~/.workbuddy/` 下是对应软链。改配置要改这里，不要去动 `~/.workbuddy/` 里的软链本身。**纳入项**（纯文本、可移植）：SOUL / IDENTITY / USER / MEMORY / memory/ / mcp.json / settings.json / models.json / skills/；**排除项**（运行时/缓存/二进制，重装自动重建）：binaries、plugins、logs、traces、security、cache、sessions、workspace、local_storage、*.db、*.port 等。
 - `knowledge/` — **WorkBuddy、pi 与 Codex 共用的权威工作记录源**（md 格式，git 即备份）。按主题分 `topics/<主题>/`。换话题时自动总结存这里。这是三 agent 共用的权威源，印象笔记只是可读副本。
-- `vault/` — **Obsidian 知识库迁移产物（2026-10-27）**：7936 篇 md，图片已全部 base64 内嵌。它是**独立私有仓库 `zsongshu/tim-zhang-obs`**（git@github.com:zsongshu/tim-zhang-obs.git），不进本 public 仓库（.gitignore 已排除）。附件在 iCloud CloudDocs `ebook/`（顶层只放 pdf/word/ppt/excel/视频）与 `ebook/其他/`（txt/zip/chm 等 845 个）；完整映射见 `vault/attachments-manifest.csv`。源 iCloud Obsidian 库保留未删。
+- `vault/` — **Obsidian 知识库迁移产物（2026-10-27）**：7934 篇 md（含 2 篇 `.1` 重复副本），图片已全部 base64 内嵌。它是**独立私有仓库 `zsongshu/tim-zhang-obs`**（git@github.com:zsongshu/tim-zhang-obs.git），不进本 public 仓库（.gitignore 已排除）。附件在 iCloud CloudDocs `ebook/`（顶层只放 pdf/word/ppt/excel/视频，约 7956 个）与 `ebook/其他/`（txt/zip/chm/bin 等其余类型，约 17502 个）；完整映射见 `vault/attachments-manifest.csv`。**源 iCloud Obsidian 库已全部移入 iCloud 废纸篓（可逆，未真删）**，确认无误后可清空废纸篓。
 - `pi/` — 另一个 coding agent（Pi）的配置，软链到 `~/.pi/agent/`；其**技能库在 `pi/skills/`**（brave-search / browser-tools / gccli·gdcli·gmcli / transcribe / vscode / youtube-transcript / anthropic 等），软链到 `~/.agents/skills`，被 Pi 读取。
 - `workbuddy/skills/` — **WorkBuddy 的技能库**（软链到 `~/.workbuddy/skills`），目前为空；WorkBuddy 真实技能来自 App 安装目录。三个 agent 的 skills **各自维护、互不打扰**，根目录不再放共享 `skills/`——避免改一个 agent 的技能误伤另一个。
 - `setup.sh` — **换电脑恢复入口**，一键重建所有软链（含 pi 与 workbuddy 两段）。
@@ -96,7 +96,7 @@
 
 ## 工作环境（上下文）
 
-- **Obsidian 库**：`~/Library/Mobile Documents/iCloud~md~obsidian/Documents/tim-zhang-obs`（约 7900+ md，仍在用但计划迁走）。
+- **Obsidian 库**：原 `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/tim-zhang-obs` 已于 2026-10-27 迁移完成并移入 iCloud 废纸篓（见 `vault/` 与 `ebook/`）。新库即 `vault/`（GitHub 私有仓库 `zsongshu/tim-zhang-obs`）。
 - **印象笔记迁移目标**：全部笔记 → 印象笔记（Evernote 国际版，API token 方式），核心诉求是**云端存储**；本 `~/songshu` 即中转仓库。
 - **另一个 agent（pi）的会话记录**：`~/.pi/agent/sessions/`，是了解张松树的好素材。
 

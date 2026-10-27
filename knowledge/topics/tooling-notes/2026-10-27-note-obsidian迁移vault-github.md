@@ -25,8 +25,9 @@
 ## 关键脚本（本会话 .workbuddy/tmp/ 下）
 scan_vault.py（只读扫描）/ migrate_vault.py（md+base64）/ restage_ebook.py / migrate_v2.py（合格附件移动）/ gen_manifest.py / shrink_big_md.py / git_push_v2.sh（分批提交+推送）
 
-## 遗留事项
-- attachments-staging 845 个文件去向待定
-- ebook 16G 的 iCloud 上传需较长时间
-- 源 iCloud 库（34G）确认后删除
+## 最终状态（2026-10-27 完成）
+- attachments-staging 845 个已平铺搬入 `ebook/其他/`（搬运记录 `_moved_from_staging.csv`），staging 现仅留流程 csv
+- 源库剩余 41949 孤儿附件按"同名同内容跳过 / 同名不同内容加哈希后缀"全部归集进 `ebook/其他/`（moved 6837 / renamed 8923 / skipped_dup 54）
+- **源 iCloud 库（tim-zhang-obs）已于本会话移入 iCloud 废纸篓（可逆，未真删）**；vault 已含全部 7934 篇 md 于 GitHub 私有仓库 `zsongshu/tim-zhang-obs`（本地=远程 f7fae00）
+- ebook：顶层约 7956 个（pdf/word/ppt/excel/视频）+ `其他/` 约 17502 个，共约 33G
 - MD 里 510 条失效引用原样保留
